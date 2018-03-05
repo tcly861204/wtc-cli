@@ -1,0 +1,34 @@
+{
+  "name": "wtc-cli",
+  "version": "1.0.0",
+  "description": "前端自动化构建工具",
+  "keywords": [
+    "wtc-cli",
+    "commander",
+    "resume"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "bin": {
+    "wtc-cli": "bin/wtc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcly861204/wtc-cli.git"
+  },
+  "author": "tcly861204",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcly861204/wtc-cli/issues"
+  },
+  "homepage": "https://github.com/tcly861204/wtc-cli#readme",
+  "dependencies": {
+    "colors-cli": "^1.0.13",
+    "commander": "^2.14.1"
+  }
+}
