@@ -1,58 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 const program = require('commander');
-const color = require('colors-cli/toxic')
-const appInfo = require('./../package.json');
-const resume = require('../lib/resume.js');
-const info = require('./../lib/info.json');
-const basicinfo = info.basicinfo;//基本信息数据：
-const log = console.log;
-
-const iconFACE = [
-    '',
-    '  v' + appInfo.version,
-    '  /\\\\\\'.x1+'          /\\\\\\\          '.x2+'/\\\\\\'.x4+'__________________________'.x240,
-    '  \\/\\\\\\'.x1+'        /\\/\\\\\\\        '.x2+'/\\///'.x4+'__________________________'.x240,
-    '   \\/\\\\\\'.x1+'      /\\/\\/\\\\\\'.x2+'      /\\///'.x4+'___________________________'.x240,
-    '    \\/\\\\\\'.x1+'    /\\///\\/\\\\\\'.x2+'    /\\///'.x4+'____________________________'.x240,
-    '     \\/\\\\\\'.x1+'  /\\///  \\/\\\\\\'.x2+'  /\\///'.x4+'_____________________________'.x240,
-    '      \\/\\\\\\'.x1+'/\\///    \\/\\\\\\'.x2+'/\\///'.x4+'______________________________'.x240,
-    '       \\/\\'.x1+'/\\///      \\/\\'.x2+'/\\///'.x4+'_______________________________'.x240,
-    '        \\'.x1+'/\\///        \\'.x2+'/\\///'.x4+'________________________________'.x240,
-    ''
-].join('\n');
+const pkg = require('../package');
 program
-    .usage('[options] <package>')
-    .version(iconFACE)
-    .parse(process.argv);
-
-program
-    .command('resume [cmd]')
-    .alias('rs')
-    .description(' Ⓦ Ⓣ Ⓒ 这里是我的简历详情！'.x29)
-    .option("-b, --basicinfo [type]", "基本信息")
-    .option("-e, --education [type]", "教育经历")
-    .option("-i, --itskill   [type]", "IT技能")
-    .action(function(cmd,options){
-        const nm = typeof options.name=='string'?options.name:"";
-            resume(cmd,options);
-    }).on("--help",function(){
-        log(iconFACE);
-        log();
-        log('    rs  预览简历');
-        log();
-        log('    -b, --basicinfo 基本信息');
-        for (var a in basicinfo.data) {
-            log("       "+ a + ': ' + basicinfo.data[a].info)
-        };
-        log('    -e, --education 教育经历');
-        log('    -i, --itskill 教育经历');
-        log();
-    });
-// 默认不传参数输出help
-if (!process.argv[2]) {
-    log(iconFACE);
-    program.help();
-}
-
-program.parse(process.argv);
+  .version(pkg.version, '-v, --version')
+  .usage('<command> [options]')
+  .command('init', 'generate a new project from a template')
+  .command('list', 'list available official templates')
+  .command('build', 'prototype a new project')
+  .parse(process.argv)

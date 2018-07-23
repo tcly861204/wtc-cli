@@ -1,18 +1,20 @@
 {
   "name": "wtc-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "前端自动化构建工具",
   "keywords": [
     "wtc-cli",
     "commander",
     "resume"
   ],
-  "main": "index.js",
+  "main": "bin/wtc",
   "engines": {
     "node": ">=6.0.0"
   },
   "bin": {
-    "wtc-cli": "bin/wtc"
+    "wtc-cli": "bin/wtc",
+    "wtc": "bin/wtc",
+    "wtc-init": "bin/wtc-init"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,7 +30,13 @@
   },
   "homepage": "https://github.com/tcly861204/wtc-cli#readme",
   "dependencies": {
-    "colors-cli": "^1.0.13",
-    "commander": "^2.14.1"
+    "chalk": "^2.4.1",
+    "colors-cli": "^1.0.17",
+    "commander": "^2.16.0",
+    "download-git-repo": "^1.0.2",
+    "handlebars": "^4.0.11",
+    "inquirer": "^6.0.0",
+    "log-symbols": "^2.2.0",
+    "ora": "^3.0.0"
   }
 }
